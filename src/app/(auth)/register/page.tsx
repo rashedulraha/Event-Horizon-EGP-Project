@@ -119,30 +119,24 @@ const RegisterPage = () => {
 
           <div className="mt-6 grid grid-cols-3 gap-3">
             <div>
-              <a
-                href="#"
-                className="w-full inline-flex justify-center py-2 px-4 border border-gray-700 rounded-sm shadow-sm bg-gray-900 text-sm font-medium text-gray-300 hover:bg-gray-800">
+              <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-700 rounded-sm shadow-sm bg-gray-900 text-sm font-medium text-gray-300 hover:bg-gray-800">
                 <span className="sr-only">Sign up with Facebook</span>
                 <FaFacebook />
-              </a>
+              </button>
             </div>
 
             <div>
-              <a
-                href="#"
-                className="w-full inline-flex justify-center py-2 px-4 border border-gray-700 rounded-sm shadow-sm bg-gray-900 text-sm font-medium text-gray-300 hover:bg-gray-800">
+              <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-700 rounded-sm shadow-sm bg-gray-900 text-sm font-medium text-gray-300 hover:bg-gray-800">
                 <span className="sr-only">Sign up with Twitter</span>
                 <FaTwitter />
-              </a>
+              </button>
             </div>
 
             <div>
-              <a
-                href="#"
-                className="w-full inline-flex justify-center py-2 px-4 border border-gray-700 rounded-sm shadow-sm bg-gray-900 text-sm font-medium text-gray-300 hover:bg-gray-800">
+              <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-700 rounded-sm shadow-sm bg-gray-900 text-sm font-medium text-gray-300 hover:bg-gray-800">
                 <span className="sr-only">Sign up with Google</span>
                 <FaGoogle />
-              </a>
+              </button>
             </div>
           </div>
         </div>
