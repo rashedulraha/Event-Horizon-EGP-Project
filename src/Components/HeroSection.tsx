@@ -2,7 +2,7 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <section className="bg-black text-white py-24">
+    <section className=" py-24">
       <div className="container mx-auto px-6 text-center max-w-4xl">
         <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
           Discover Events That <br /> Defy Expectations
