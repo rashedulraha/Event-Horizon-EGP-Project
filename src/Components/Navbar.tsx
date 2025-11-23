@@ -30,13 +30,17 @@ const Navbar = () => {
             How It Works
           </Link>
         </div>
-        <div className="space-x-5">
-          <button className="px-3 py-1 cursor-pointer rounded-sm border">
+        <div className="space-x-4">
+          <Link
+            href={"/login"}
+            className="px-3 py-2 cursor-pointer rounded-sm border">
             Login
-          </button>
-          <button className="px-3 py-1 cursor-pointer rounded-sm border">
+          </Link>
+          <Link
+            href={"/register"}
+            className="px-3 py-2 cursor-pointer rounded-sm border">
             Register
-          </button>
+          </Link>
         </div>
       </div>
     </>

@@ -6,7 +6,7 @@ import Navbar from "@/Components/Navbar";
 export default function Home() {
   return (
     <>
-      <div className="bg-[#09090b]">
+      <div className="bg-[#09090b]  min-h-screen">
         <Navbar />
         <HeroSection />
         <EventHorizonSection />
