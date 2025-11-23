@@ -1,9 +1,40 @@
+"use client";
+
+import AuthContext from "@/context/AuthContext";
 import Link from "next/link";
-import React from "react";
+import { useContext } from "react";
+
+import { useForm } from "react-hook-form";
+
 import { FaHome } from "react-icons/fa";
 import { FaCalendar, FaFacebook, FaGoogle, FaTwitter } from "react-icons/fa6";
 
+type Inputs = {
+  name?: string;
+  email: string;
+  password: string;
+};
+
 const RegisterPage = () => {
+  const { register, handleSubmit } = useForm<Inputs>();
+
+  const { RegisterUser } = useContext(AuthContext);
+
+  // if (!auth) {
+  //   throw new Error("AuthContext must be used inside AuthProvider");
+  // }
+
+  // const { RegisterUser } = auth;
+
+  const handleRegister = (data: Inputs) => {
+    const email = data.email || {};
+    const password = data.password || {};
+
+    RegisterUser(email, password);
+
+    console.log(data);
+  };
+
   return (
     <div className="min-h-screen bg-black flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="absolute top-10 left-5 md:left-20 flex items-center gap-2">
@@ -29,17 +60,17 @@ const RegisterPage = () => {
         </div>
 
         {/* Register Form */}
-        <form className="mt-8 space-y-6">
+        <form
+          className="mt-8 space-y-6"
+          onSubmit={handleSubmit(handleRegister)}>
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
               <label htmlFor="full-name" className="sr-only">
                 Full Name
               </label>
               <input
-                id="full-name"
-                name="name"
                 type="text"
-                autoComplete="name"
+                {...register("name")}
                 className="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-700 placeholder-gray-500 text-white bg-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Full Name"
               />
@@ -49,10 +80,8 @@ const RegisterPage = () => {
                 Email address
               </label>
               <input
-                id="email-address"
-                name="email"
                 type="email"
-                autoComplete="email"
+                {...register("email")}
                 className="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-700 placeholder-gray-500 text-white bg-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
               />
@@ -62,10 +91,8 @@ const RegisterPage = () => {
                 Password
               </label>
               <input
-                id="password"
-                name="password"
+                {...register("password")}
                 type="password"
-                autoComplete="new-password"
                 className="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-700 placeholder-gray-500 text-white bg-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
               />

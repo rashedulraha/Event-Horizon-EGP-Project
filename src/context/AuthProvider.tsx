@@ -1,3 +1,5 @@
+"use client";
+
 import React, {
   createContext,
   useContext,
@@ -20,9 +22,8 @@ import {
   UserCredential,
 } from "firebase/auth";
 
-import { auth } from "@/Firebase/Firebase.init.js";
-
 import { toast } from "react-toastify";
+import { auth } from "@/Firebase/firebase.init";
 
 // Google Provider
 const googleProvider = new GoogleAuthProvider();
@@ -31,7 +32,7 @@ const googleProvider = new GoogleAuthProvider();
 interface AuthContextType {
   user: User | null;
   loading: boolean;
-  Register: (email: string, password: string) => Promise<User>;
+  RegisterUser: (email: string, password: string) => Promise<User>;
   signinUser: (email: string, password: string) => Promise<User>;
   WithGoogle: () => Promise<UserCredential>;
   signout: () => Promise<void>;
@@ -62,7 +63,10 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   const [loading, setLoading] = useState<boolean>(true);
 
   // Register with email & password
-  const Register = async (email: string, password: string): Promise<User> => {
+  const RegisterUser = async (
+    email: string,
+    password: string
+  ): Promise<User> => {
     setLoading(true);
     try {
       const userCredential = await createUserWithEmailAndPassword(
@@ -167,7 +171,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   const value: AuthContextType = {
     user,
     loading,
-    Register,
+    RegisterUser,
     signinUser,
     WithGoogle,
     signout,
