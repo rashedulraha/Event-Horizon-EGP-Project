@@ -8,7 +8,7 @@ const HeroSection = () => {
           Discover Events That <br /> Defy Expectations
         </h1>
 
-        <p className="text-gray-300 mt-6 text-lg md:text-xl">
+        <p className="text-gray-300/60 mt-6 text-lg md:text-xl">
           Join the world&apos;s most innovative event platform. Find tech
           conferences, music festivals, and networking meetups tailored just for
           you.
@@ -24,10 +24,26 @@ const HeroSection = () => {
           </button>
         </div>
 
-        <div className="my-10 max-w-4xl flex items-center justify-between ">
+        <div className="mt-20 max-w-4xl flex items-center justify-between ">
           <div>
             <h2
-              className="font-bold text-white text-2
+              className="font-bold text-white text-2xl
+              ">
+              50K+
+            </h2>
+            <span className="uppercase text-white/30">active user</span>
+          </div>
+          <div>
+            <h2
+              className="font-bold text-white text-2xl
+              ">
+              50K+
+            </h2>
+            <span className="uppercase tet- text-white/30">active user</span>
+          </div>
+          <div>
+            <h2
+              className="font-bold text-white text-2xl
               ">
               50K+
             </h2>

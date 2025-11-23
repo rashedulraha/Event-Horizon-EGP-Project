@@ -1,3 +1,4 @@
+import EventHorizonSection from "@/Components/EventHorizonSection";
 import HeroSection from "@/Components/HeroSection";
 import Navbar from "@/Components/Navbar";
 
@@ -6,7 +7,7 @@ export default function Home() {
     <>
       <Navbar />
       <HeroSection />
-      <h1>Hello world next js </h1>
+      <EventHorizonSection />
     </>
   );
 }
