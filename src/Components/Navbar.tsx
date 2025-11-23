@@ -10,22 +10,22 @@ const Navbar = () => {
         </div>
         <div className="hidden md:flex items-center gap-6 ">
           <Link
-            href="/"
+            href="/explore"
             className="font-medium text-muted-foreground hover:text-foreground transition-colors text-base">
             Explore
           </Link>
           <Link
-            href="/rooms"
+            href="/about"
             className=" font-medium text-muted-foreground hover:text-foreground transition-colors text-base">
             About
           </Link>
           <Link
-            href="/dashboard/post-room"
+            href="/pricing"
             className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors">
             Pricing
           </Link>
           <Link
-            href="/how-it-works"
+            href="/howItWorks"
             className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors">
             How It Works
           </Link>
