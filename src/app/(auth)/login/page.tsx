@@ -1,7 +1,11 @@
 "use client";
 
 import { auth } from "@/Firebase/firebase.init";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -13,6 +17,8 @@ type Inputs = {
   email: string;
   password: string;
 };
+
+const googleProvider = new GoogleAuthProvider();
 
 const LoginPage = () => {
   const { register, handleSubmit } = useForm<Inputs>();
@@ -26,8 +32,22 @@ const LoginPage = () => {
         console.log(res);
         toast.success("signin successfully");
       })
-      .catch((error) => {
+      .catch(() => {
         toast.error("Network Error");
+      });
+  };
+
+  //! sign in with google
+
+  const handleGoogleSignin = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((res) => {
+        console.log(res);
+
+        toast.success("Signin successfully");
+      })
+      .catch((error) => {
+        toast.error(error.message);
       });
   };
 
@@ -150,12 +170,12 @@ const LoginPage = () => {
             </div>
 
             <div>
-              <a
-                href="#"
+              <button
+                onClick={handleGoogleSignin}
                 className="w-full inline-flex justify-center py-2 px-4 border border-gray-700 rounded-md shadow-sm bg-gray-900 text-sm font-medium text-gray-300 hover:bg-gray-800">
                 <span className="sr-only">Sign in with Google</span>
                 <FaGoogle />
-              </a>
+              </button>
             </div>
           </div>
         </div>
