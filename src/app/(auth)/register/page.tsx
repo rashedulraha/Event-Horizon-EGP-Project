@@ -1,13 +1,14 @@
 "use client";
 
-import AuthContext from "@/context/AuthContext";
+import { auth } from "@/Firebase/firebase.init";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import Link from "next/link";
-import { useContext } from "react";
 
 import { useForm } from "react-hook-form";
 
 import { FaHome } from "react-icons/fa";
 import { FaCalendar, FaFacebook, FaGoogle, FaTwitter } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
 type Inputs = {
   name?: string;
@@ -18,7 +19,7 @@ type Inputs = {
 const RegisterPage = () => {
   const { register, handleSubmit } = useForm<Inputs>();
 
-  const { RegisterUser } = useContext(AuthContext);
+  // const { RegisterUser } = useContext(AuthContext);
 
   // if (!auth) {
   //   throw new Error("AuthContext must be used inside AuthProvider");
@@ -27,12 +28,16 @@ const RegisterPage = () => {
   // const { RegisterUser } = auth;
 
   const handleRegister = (data: Inputs) => {
-    const email = data.email || {};
-    const password = data.password || {};
+    const email = data.email;
+    const password = data.password;
 
-    RegisterUser(email, password);
+    createUserWithEmailAndPassword(auth, email, password).then((res) => {
+      console.log(res);
 
-    console.log(data);
+      toast("Signup successfully").catch((error: unknown) => {
+        toast.success("Network error");
+      });
+    });
   };
 
   return (
